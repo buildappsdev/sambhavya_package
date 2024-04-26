@@ -7,15 +7,21 @@ part 'counsellor.g.dart';
 abstract class Counsellor with _$Counsellor {
   const factory Counsellor({
     required String id,
+    
     required String name,
+    required String gender,
     required String email,
-    required String degree,
-    required String title,
     required String phone,
+
+    String? imageUrl,
+
+    required String title,
+    required String degree,
     required String speciality,
     required int yrsOfExperience,
-    required String gender,
+
     required List<String> workingDays,
+    required List<String> workingHours,
   }) = _Counsellor;
 
   factory Counsellor.fromJson(Map<String, dynamic> json) =>

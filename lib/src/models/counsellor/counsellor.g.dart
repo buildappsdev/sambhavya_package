@@ -10,14 +10,18 @@ _$CounsellorImpl _$$CounsellorImplFromJson(Map<String, dynamic> json) =>
     _$CounsellorImpl(
       id: json['id'] as String,
       name: json['name'] as String,
+      gender: json['gender'] as String,
       email: json['email'] as String,
-      degree: json['degree'] as String,
-      title: json['title'] as String,
       phone: json['phone'] as String,
+      imageUrl: json['imageUrl'] as String?,
+      title: json['title'] as String,
+      degree: json['degree'] as String,
       speciality: json['speciality'] as String,
       yrsOfExperience: (json['yrsOfExperience'] as num).toInt(),
-      gender: json['gender'] as String,
       workingDays: (json['workingDays'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      workingHours: (json['workingHours'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
     );
@@ -26,12 +30,14 @@ Map<String, dynamic> _$$CounsellorImplToJson(_$CounsellorImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'gender': instance.gender,
       'email': instance.email,
-      'degree': instance.degree,
-      'title': instance.title,
       'phone': instance.phone,
+      'imageUrl': instance.imageUrl,
+      'title': instance.title,
+      'degree': instance.degree,
       'speciality': instance.speciality,
       'yrsOfExperience': instance.yrsOfExperience,
-      'gender': instance.gender,
       'workingDays': instance.workingDays,
+      'workingHours': instance.workingHours,
     };

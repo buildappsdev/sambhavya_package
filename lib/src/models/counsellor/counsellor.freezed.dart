@@ -22,14 +22,16 @@ Counsellor _$CounsellorFromJson(Map<String, dynamic> json) {
 mixin _$Counsellor {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get degree => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get degree => throw _privateConstructorUsedError;
   String get speciality => throw _privateConstructorUsedError;
   int get yrsOfExperience => throw _privateConstructorUsedError;
-  String get gender => throw _privateConstructorUsedError;
   List<String> get workingDays => throw _privateConstructorUsedError;
+  List<String> get workingHours => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,14 +48,16 @@ abstract class $CounsellorCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
+      String gender,
       String email,
-      String degree,
-      String title,
       String phone,
+      String? imageUrl,
+      String title,
+      String degree,
       String speciality,
       int yrsOfExperience,
-      String gender,
-      List<String> workingDays});
+      List<String> workingDays,
+      List<String> workingHours});
 }
 
 /// @nodoc
@@ -71,14 +75,16 @@ class _$CounsellorCopyWithImpl<$Res, $Val extends Counsellor>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? gender = null,
     Object? email = null,
-    Object? degree = null,
-    Object? title = null,
     Object? phone = null,
+    Object? imageUrl = freezed,
+    Object? title = null,
+    Object? degree = null,
     Object? speciality = null,
     Object? yrsOfExperience = null,
-    Object? gender = null,
     Object? workingDays = null,
+    Object? workingHours = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,21 +95,29 @@ class _$CounsellorCopyWithImpl<$Res, $Val extends Counsellor>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      degree: null == degree
-          ? _value.degree
-          : degree // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
+      degree: null == degree
+          ? _value.degree
+          : degree // ignore: cast_nullable_to_non_nullable
               as String,
       speciality: null == speciality
           ? _value.speciality
@@ -113,13 +127,13 @@ class _$CounsellorCopyWithImpl<$Res, $Val extends Counsellor>
           ? _value.yrsOfExperience
           : yrsOfExperience // ignore: cast_nullable_to_non_nullable
               as int,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String,
       workingDays: null == workingDays
           ? _value.workingDays
           : workingDays // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      workingHours: null == workingHours
+          ? _value.workingHours
+          : workingHours // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
   }
@@ -136,14 +150,16 @@ abstract class _$$CounsellorImplCopyWith<$Res>
   $Res call(
       {String id,
       String name,
+      String gender,
       String email,
-      String degree,
-      String title,
       String phone,
+      String? imageUrl,
+      String title,
+      String degree,
       String speciality,
       int yrsOfExperience,
-      String gender,
-      List<String> workingDays});
+      List<String> workingDays,
+      List<String> workingHours});
 }
 
 /// @nodoc
@@ -159,14 +175,16 @@ class __$$CounsellorImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? gender = null,
     Object? email = null,
-    Object? degree = null,
-    Object? title = null,
     Object? phone = null,
+    Object? imageUrl = freezed,
+    Object? title = null,
+    Object? degree = null,
     Object? speciality = null,
     Object? yrsOfExperience = null,
-    Object? gender = null,
     Object? workingDays = null,
+    Object? workingHours = null,
   }) {
     return _then(_$CounsellorImpl(
       id: null == id
@@ -177,21 +195,29 @@ class __$$CounsellorImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      degree: null == degree
-          ? _value.degree
-          : degree // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
+      degree: null == degree
+          ? _value.degree
+          : degree // ignore: cast_nullable_to_non_nullable
               as String,
       speciality: null == speciality
           ? _value.speciality
@@ -201,13 +227,13 @@ class __$$CounsellorImplCopyWithImpl<$Res>
           ? _value.yrsOfExperience
           : yrsOfExperience // ignore: cast_nullable_to_non_nullable
               as int,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String,
       workingDays: null == workingDays
           ? _value._workingDays
           : workingDays // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      workingHours: null == workingHours
+          ? _value._workingHours
+          : workingHours // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
   }
@@ -219,15 +245,18 @@ class _$CounsellorImpl implements _Counsellor {
   const _$CounsellorImpl(
       {required this.id,
       required this.name,
+      required this.gender,
       required this.email,
-      required this.degree,
-      required this.title,
       required this.phone,
+      this.imageUrl,
+      required this.title,
+      required this.degree,
       required this.speciality,
       required this.yrsOfExperience,
-      required this.gender,
-      required final List<String> workingDays})
-      : _workingDays = workingDays;
+      required final List<String> workingDays,
+      required final List<String> workingHours})
+      : _workingDays = workingDays,
+        _workingHours = workingHours;
 
   factory _$CounsellorImpl.fromJson(Map<String, dynamic> json) =>
       _$$CounsellorImplFromJson(json);
@@ -237,19 +266,21 @@ class _$CounsellorImpl implements _Counsellor {
   @override
   final String name;
   @override
+  final String gender;
+  @override
   final String email;
   @override
-  final String degree;
+  final String phone;
+  @override
+  final String? imageUrl;
   @override
   final String title;
   @override
-  final String phone;
+  final String degree;
   @override
   final String speciality;
   @override
   final int yrsOfExperience;
-  @override
-  final String gender;
   final List<String> _workingDays;
   @override
   List<String> get workingDays {
@@ -258,9 +289,17 @@ class _$CounsellorImpl implements _Counsellor {
     return EqualUnmodifiableListView(_workingDays);
   }
 
+  final List<String> _workingHours;
+  @override
+  List<String> get workingHours {
+    if (_workingHours is EqualUnmodifiableListView) return _workingHours;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_workingHours);
+  }
+
   @override
   String toString() {
-    return 'Counsellor(id: $id, name: $name, email: $email, degree: $degree, title: $title, phone: $phone, speciality: $speciality, yrsOfExperience: $yrsOfExperience, gender: $gender, workingDays: $workingDays)';
+    return 'Counsellor(id: $id, name: $name, gender: $gender, email: $email, phone: $phone, imageUrl: $imageUrl, title: $title, degree: $degree, speciality: $speciality, yrsOfExperience: $yrsOfExperience, workingDays: $workingDays, workingHours: $workingHours)';
   }
 
   @override
@@ -270,17 +309,21 @@ class _$CounsellorImpl implements _Counsellor {
             other is _$CounsellorImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.degree, degree) || other.degree == degree) &&
-            (identical(other.title, title) || other.title == title) &&
             (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.degree, degree) || other.degree == degree) &&
             (identical(other.speciality, speciality) ||
                 other.speciality == speciality) &&
             (identical(other.yrsOfExperience, yrsOfExperience) ||
                 other.yrsOfExperience == yrsOfExperience) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
             const DeepCollectionEquality()
-                .equals(other._workingDays, _workingDays));
+                .equals(other._workingDays, _workingDays) &&
+            const DeepCollectionEquality()
+                .equals(other._workingHours, _workingHours));
   }
 
   @JsonKey(ignore: true)
@@ -289,14 +332,16 @@ class _$CounsellorImpl implements _Counsellor {
       runtimeType,
       id,
       name,
+      gender,
       email,
-      degree,
-      title,
       phone,
+      imageUrl,
+      title,
+      degree,
       speciality,
       yrsOfExperience,
-      gender,
-      const DeepCollectionEquality().hash(_workingDays));
+      const DeepCollectionEquality().hash(_workingDays),
+      const DeepCollectionEquality().hash(_workingHours));
 
   @JsonKey(ignore: true)
   @override
@@ -316,14 +361,16 @@ abstract class _Counsellor implements Counsellor {
   const factory _Counsellor(
       {required final String id,
       required final String name,
+      required final String gender,
       required final String email,
-      required final String degree,
-      required final String title,
       required final String phone,
+      final String? imageUrl,
+      required final String title,
+      required final String degree,
       required final String speciality,
       required final int yrsOfExperience,
-      required final String gender,
-      required final List<String> workingDays}) = _$CounsellorImpl;
+      required final List<String> workingDays,
+      required final List<String> workingHours}) = _$CounsellorImpl;
 
   factory _Counsellor.fromJson(Map<String, dynamic> json) =
       _$CounsellorImpl.fromJson;
@@ -333,21 +380,25 @@ abstract class _Counsellor implements Counsellor {
   @override
   String get name;
   @override
+  String get gender;
+  @override
   String get email;
   @override
-  String get degree;
+  String get phone;
+  @override
+  String? get imageUrl;
   @override
   String get title;
   @override
-  String get phone;
+  String get degree;
   @override
   String get speciality;
   @override
   int get yrsOfExperience;
   @override
-  String get gender;
-  @override
   List<String> get workingDays;
+  @override
+  List<String> get workingHours;
   @override
   @JsonKey(ignore: true)
   _$$CounsellorImplCopyWith<_$CounsellorImpl> get copyWith =>
