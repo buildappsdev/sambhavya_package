@@ -20,6 +20,7 @@ AppointmentLocation _$AppointmentLocationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppointmentLocation {
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String? get googleMapsLink => throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ abstract class $AppointmentLocationCopyWith<$Res> {
           AppointmentLocation value, $Res Function(AppointmentLocation) then) =
       _$AppointmentLocationCopyWithImpl<$Res, AppointmentLocation>;
   @useResult
-  $Res call({String title, String address, String? googleMapsLink});
+  $Res call({String id, String title, String address, String? googleMapsLink});
 }
 
 /// @nodoc
@@ -52,11 +53,16 @@ class _$AppointmentLocationCopyWithImpl<$Res, $Val extends AppointmentLocation>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? address = null,
     Object? googleMapsLink = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -81,7 +87,7 @@ abstract class _$$AppointmentLocationImplCopyWith<$Res>
       __$$AppointmentLocationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String address, String? googleMapsLink});
+  $Res call({String id, String title, String address, String? googleMapsLink});
 }
 
 /// @nodoc
@@ -95,11 +101,16 @@ class __$$AppointmentLocationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? address = null,
     Object? googleMapsLink = freezed,
   }) {
     return _then(_$AppointmentLocationImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -120,11 +131,16 @@ class __$$AppointmentLocationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AppointmentLocationImpl implements _AppointmentLocation {
   const _$AppointmentLocationImpl(
-      {required this.title, required this.address, this.googleMapsLink});
+      {required this.id,
+      required this.title,
+      required this.address,
+      this.googleMapsLink});
 
   factory _$AppointmentLocationImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentLocationImplFromJson(json);
 
+  @override
+  final String id;
   @override
   final String title;
   @override
@@ -134,7 +150,7 @@ class _$AppointmentLocationImpl implements _AppointmentLocation {
 
   @override
   String toString() {
-    return 'AppointmentLocation(title: $title, address: $address, googleMapsLink: $googleMapsLink)';
+    return 'AppointmentLocation(id: $id, title: $title, address: $address, googleMapsLink: $googleMapsLink)';
   }
 
   @override
@@ -142,6 +158,7 @@ class _$AppointmentLocationImpl implements _AppointmentLocation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppointmentLocationImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.googleMapsLink, googleMapsLink) ||
@@ -150,7 +167,8 @@ class _$AppointmentLocationImpl implements _AppointmentLocation {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, address, googleMapsLink);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, address, googleMapsLink);
 
   @JsonKey(ignore: true)
   @override
@@ -169,13 +187,16 @@ class _$AppointmentLocationImpl implements _AppointmentLocation {
 
 abstract class _AppointmentLocation implements AppointmentLocation {
   const factory _AppointmentLocation(
-      {required final String title,
+      {required final String id,
+      required final String title,
       required final String address,
       final String? googleMapsLink}) = _$AppointmentLocationImpl;
 
   factory _AppointmentLocation.fromJson(Map<String, dynamic> json) =
       _$AppointmentLocationImpl.fromJson;
 
+  @override
+  String get id;
   @override
   String get title;
   @override
