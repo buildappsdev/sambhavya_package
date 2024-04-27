@@ -22,6 +22,7 @@ Appointment _$AppointmentFromJson(Map<String, dynamic> json) {
 mixin _$Appointment {
   String get id => throw _privateConstructorUsedError;
   String get appointmentType => throw _privateConstructorUsedError;
+  String? get appointmentLocationId => throw _privateConstructorUsedError;
   String get counsellorId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $AppointmentCopyWith<$Res> {
   $Res call(
       {String id,
       String appointmentType,
+      String? appointmentLocationId,
       String counsellorId,
       String userId,
       DateTime dateTime,
@@ -63,6 +65,7 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
   $Res call({
     Object? id = null,
     Object? appointmentType = null,
+    Object? appointmentLocationId = freezed,
     Object? counsellorId = null,
     Object? userId = null,
     Object? dateTime = null,
@@ -77,6 +80,10 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           ? _value.appointmentType
           : appointmentType // ignore: cast_nullable_to_non_nullable
               as String,
+      appointmentLocationId: freezed == appointmentLocationId
+          ? _value.appointmentLocationId
+          : appointmentLocationId // ignore: cast_nullable_to_non_nullable
+              as String?,
       counsellorId: null == counsellorId
           ? _value.counsellorId
           : counsellorId // ignore: cast_nullable_to_non_nullable
@@ -108,6 +115,7 @@ abstract class _$$AppointmentImplCopyWith<$Res>
   $Res call(
       {String id,
       String appointmentType,
+      String? appointmentLocationId,
       String counsellorId,
       String userId,
       DateTime dateTime,
@@ -127,6 +135,7 @@ class __$$AppointmentImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? appointmentType = null,
+    Object? appointmentLocationId = freezed,
     Object? counsellorId = null,
     Object? userId = null,
     Object? dateTime = null,
@@ -141,6 +150,10 @@ class __$$AppointmentImplCopyWithImpl<$Res>
           ? _value.appointmentType
           : appointmentType // ignore: cast_nullable_to_non_nullable
               as String,
+      appointmentLocationId: freezed == appointmentLocationId
+          ? _value.appointmentLocationId
+          : appointmentLocationId // ignore: cast_nullable_to_non_nullable
+              as String?,
       counsellorId: null == counsellorId
           ? _value.counsellorId
           : counsellorId // ignore: cast_nullable_to_non_nullable
@@ -167,6 +180,7 @@ class _$AppointmentImpl implements _Appointment {
   const _$AppointmentImpl(
       {required this.id,
       required this.appointmentType,
+      required this.appointmentLocationId,
       required this.counsellorId,
       required this.userId,
       required this.dateTime,
@@ -180,6 +194,8 @@ class _$AppointmentImpl implements _Appointment {
   @override
   final String appointmentType;
   @override
+  final String? appointmentLocationId;
+  @override
   final String counsellorId;
   @override
   final String userId;
@@ -190,7 +206,7 @@ class _$AppointmentImpl implements _Appointment {
 
   @override
   String toString() {
-    return 'Appointment(id: $id, appointmentType: $appointmentType, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
+    return 'Appointment(id: $id, appointmentType: $appointmentType, appointmentLocationId: $appointmentLocationId, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
   }
 
   @override
@@ -201,6 +217,8 @@ class _$AppointmentImpl implements _Appointment {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.appointmentType, appointmentType) ||
                 other.appointmentType == appointmentType) &&
+            (identical(other.appointmentLocationId, appointmentLocationId) ||
+                other.appointmentLocationId == appointmentLocationId) &&
             (identical(other.counsellorId, counsellorId) ||
                 other.counsellorId == counsellorId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
@@ -213,7 +231,7 @@ class _$AppointmentImpl implements _Appointment {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, appointmentType,
-      counsellorId, userId, dateTime, additionalInfo);
+      appointmentLocationId, counsellorId, userId, dateTime, additionalInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -233,6 +251,7 @@ abstract class _Appointment implements Appointment {
   const factory _Appointment(
       {required final String id,
       required final String appointmentType,
+      required final String? appointmentLocationId,
       required final String counsellorId,
       required final String userId,
       required final DateTime dateTime,
@@ -245,6 +264,8 @@ abstract class _Appointment implements Appointment {
   String get id;
   @override
   String get appointmentType;
+  @override
+  String? get appointmentLocationId;
   @override
   String get counsellorId;
   @override

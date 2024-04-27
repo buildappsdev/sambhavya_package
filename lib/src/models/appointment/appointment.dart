@@ -8,6 +8,7 @@ class Appointment with _$Appointment {
   const factory Appointment({
     required String id,
     required String appointmentType,
+    required String? appointmentLocationId,
     required String counsellorId,
     required String userId,
     required DateTime dateTime,
