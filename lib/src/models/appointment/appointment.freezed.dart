@@ -20,6 +20,7 @@ Appointment _$AppointmentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Appointment {
+  String get id => throw _privateConstructorUsedError;
   String get appointmentType => throw _privateConstructorUsedError;
   String get counsellorId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $AppointmentCopyWith<$Res> {
       _$AppointmentCopyWithImpl<$Res, Appointment>;
   @useResult
   $Res call(
-      {String appointmentType,
+      {String id,
+      String appointmentType,
       String counsellorId,
       String userId,
       DateTime dateTime,
@@ -59,6 +61,7 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? appointmentType = null,
     Object? counsellorId = null,
     Object? userId = null,
@@ -66,6 +69,10 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
     Object? additionalInfo = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       appointmentType: null == appointmentType
           ? _value.appointmentType
           : appointmentType // ignore: cast_nullable_to_non_nullable
@@ -99,7 +106,8 @@ abstract class _$$AppointmentImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String appointmentType,
+      {String id,
+      String appointmentType,
       String counsellorId,
       String userId,
       DateTime dateTime,
@@ -117,6 +125,7 @@ class __$$AppointmentImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? appointmentType = null,
     Object? counsellorId = null,
     Object? userId = null,
@@ -124,6 +133,10 @@ class __$$AppointmentImplCopyWithImpl<$Res>
     Object? additionalInfo = null,
   }) {
     return _then(_$AppointmentImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       appointmentType: null == appointmentType
           ? _value.appointmentType
           : appointmentType // ignore: cast_nullable_to_non_nullable
@@ -152,7 +165,8 @@ class __$$AppointmentImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AppointmentImpl implements _Appointment {
   const _$AppointmentImpl(
-      {required this.appointmentType,
+      {required this.id,
+      required this.appointmentType,
       required this.counsellorId,
       required this.userId,
       required this.dateTime,
@@ -161,6 +175,8 @@ class _$AppointmentImpl implements _Appointment {
   factory _$AppointmentImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentImplFromJson(json);
 
+  @override
+  final String id;
   @override
   final String appointmentType;
   @override
@@ -174,7 +190,7 @@ class _$AppointmentImpl implements _Appointment {
 
   @override
   String toString() {
-    return 'Appointment(appointmentType: $appointmentType, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
+    return 'Appointment(id: $id, appointmentType: $appointmentType, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
   }
 
   @override
@@ -182,6 +198,7 @@ class _$AppointmentImpl implements _Appointment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppointmentImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.appointmentType, appointmentType) ||
                 other.appointmentType == appointmentType) &&
             (identical(other.counsellorId, counsellorId) ||
@@ -195,8 +212,8 @@ class _$AppointmentImpl implements _Appointment {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, appointmentType, counsellorId,
-      userId, dateTime, additionalInfo);
+  int get hashCode => Object.hash(runtimeType, id, appointmentType,
+      counsellorId, userId, dateTime, additionalInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -214,7 +231,8 @@ class _$AppointmentImpl implements _Appointment {
 
 abstract class _Appointment implements Appointment {
   const factory _Appointment(
-      {required final String appointmentType,
+      {required final String id,
+      required final String appointmentType,
       required final String counsellorId,
       required final String userId,
       required final DateTime dateTime,
@@ -223,6 +241,8 @@ abstract class _Appointment implements Appointment {
   factory _Appointment.fromJson(Map<String, dynamic> json) =
       _$AppointmentImpl.fromJson;
 
+  @override
+  String get id;
   @override
   String get appointmentType;
   @override
