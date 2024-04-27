@@ -6,6 +6,7 @@ part 'appointment_type.g.dart';
 @freezed
 class AppointmentType with _$AppointmentType {
   const factory AppointmentType({
+    required String id,
     required String title,
     required String description,
   }) = _AppointmentType;

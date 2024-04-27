@@ -20,6 +20,7 @@ AppointmentType _$AppointmentTypeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppointmentType {
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
@@ -35,7 +36,7 @@ abstract class $AppointmentTypeCopyWith<$Res> {
           AppointmentType value, $Res Function(AppointmentType) then) =
       _$AppointmentTypeCopyWithImpl<$Res, AppointmentType>;
   @useResult
-  $Res call({String title, String description});
+  $Res call({String id, String title, String description});
 }
 
 /// @nodoc
@@ -51,10 +52,15 @@ class _$AppointmentTypeCopyWithImpl<$Res, $Val extends AppointmentType>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? description = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -75,7 +81,7 @@ abstract class _$$AppointmentTypeImplCopyWith<$Res>
       __$$AppointmentTypeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String description});
+  $Res call({String id, String title, String description});
 }
 
 /// @nodoc
@@ -89,10 +95,15 @@ class __$$AppointmentTypeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? description = null,
   }) {
     return _then(_$AppointmentTypeImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -108,11 +119,14 @@ class __$$AppointmentTypeImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AppointmentTypeImpl implements _AppointmentType {
-  const _$AppointmentTypeImpl({required this.title, required this.description});
+  const _$AppointmentTypeImpl(
+      {required this.id, required this.title, required this.description});
 
   factory _$AppointmentTypeImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentTypeImplFromJson(json);
 
+  @override
+  final String id;
   @override
   final String title;
   @override
@@ -120,7 +134,7 @@ class _$AppointmentTypeImpl implements _AppointmentType {
 
   @override
   String toString() {
-    return 'AppointmentType(title: $title, description: $description)';
+    return 'AppointmentType(id: $id, title: $title, description: $description)';
   }
 
   @override
@@ -128,6 +142,7 @@ class _$AppointmentTypeImpl implements _AppointmentType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppointmentTypeImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -135,7 +150,7 @@ class _$AppointmentTypeImpl implements _AppointmentType {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, description);
+  int get hashCode => Object.hash(runtimeType, id, title, description);
 
   @JsonKey(ignore: true)
   @override
@@ -154,12 +169,15 @@ class _$AppointmentTypeImpl implements _AppointmentType {
 
 abstract class _AppointmentType implements AppointmentType {
   const factory _AppointmentType(
-      {required final String title,
+      {required final String id,
+      required final String title,
       required final String description}) = _$AppointmentTypeImpl;
 
   factory _AppointmentType.fromJson(Map<String, dynamic> json) =
       _$AppointmentTypeImpl.fromJson;
 
+  @override
+  String get id;
   @override
   String get title;
   @override
