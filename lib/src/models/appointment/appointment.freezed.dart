@@ -20,8 +20,9 @@ Appointment _$AppointmentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Appointment {
-  AppointmentType get appointmentType => throw _privateConstructorUsedError;
+  String get appointmentType => throw _privateConstructorUsedError;
   String get counsellorId => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
   String get additionalInfo => throw _privateConstructorUsedError;
 
@@ -38,12 +39,11 @@ abstract class $AppointmentCopyWith<$Res> {
       _$AppointmentCopyWithImpl<$Res, Appointment>;
   @useResult
   $Res call(
-      {AppointmentType appointmentType,
+      {String appointmentType,
       String counsellorId,
+      String userId,
       DateTime dateTime,
       String additionalInfo});
-
-  $AppointmentTypeCopyWith<$Res> get appointmentType;
 }
 
 /// @nodoc
@@ -61,6 +61,7 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
   $Res call({
     Object? appointmentType = null,
     Object? counsellorId = null,
+    Object? userId = null,
     Object? dateTime = null,
     Object? additionalInfo = null,
   }) {
@@ -68,10 +69,14 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
       appointmentType: null == appointmentType
           ? _value.appointmentType
           : appointmentType // ignore: cast_nullable_to_non_nullable
-              as AppointmentType,
+              as String,
       counsellorId: null == counsellorId
           ? _value.counsellorId
           : counsellorId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String,
       dateTime: null == dateTime
           ? _value.dateTime
@@ -82,14 +87,6 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           : additionalInfo // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AppointmentTypeCopyWith<$Res> get appointmentType {
-    return $AppointmentTypeCopyWith<$Res>(_value.appointmentType, (value) {
-      return _then(_value.copyWith(appointmentType: value) as $Val);
-    });
   }
 }
 
@@ -102,13 +99,11 @@ abstract class _$$AppointmentImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {AppointmentType appointmentType,
+      {String appointmentType,
       String counsellorId,
+      String userId,
       DateTime dateTime,
       String additionalInfo});
-
-  @override
-  $AppointmentTypeCopyWith<$Res> get appointmentType;
 }
 
 /// @nodoc
@@ -124,6 +119,7 @@ class __$$AppointmentImplCopyWithImpl<$Res>
   $Res call({
     Object? appointmentType = null,
     Object? counsellorId = null,
+    Object? userId = null,
     Object? dateTime = null,
     Object? additionalInfo = null,
   }) {
@@ -131,10 +127,14 @@ class __$$AppointmentImplCopyWithImpl<$Res>
       appointmentType: null == appointmentType
           ? _value.appointmentType
           : appointmentType // ignore: cast_nullable_to_non_nullable
-              as AppointmentType,
+              as String,
       counsellorId: null == counsellorId
           ? _value.counsellorId
           : counsellorId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String,
       dateTime: null == dateTime
           ? _value.dateTime
@@ -154,6 +154,7 @@ class _$AppointmentImpl implements _Appointment {
   const _$AppointmentImpl(
       {required this.appointmentType,
       required this.counsellorId,
+      required this.userId,
       required this.dateTime,
       required this.additionalInfo});
 
@@ -161,9 +162,11 @@ class _$AppointmentImpl implements _Appointment {
       _$$AppointmentImplFromJson(json);
 
   @override
-  final AppointmentType appointmentType;
+  final String appointmentType;
   @override
   final String counsellorId;
+  @override
+  final String userId;
   @override
   final DateTime dateTime;
   @override
@@ -171,7 +174,7 @@ class _$AppointmentImpl implements _Appointment {
 
   @override
   String toString() {
-    return 'Appointment(appointmentType: $appointmentType, counsellorId: $counsellorId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
+    return 'Appointment(appointmentType: $appointmentType, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
   }
 
   @override
@@ -183,6 +186,7 @@ class _$AppointmentImpl implements _Appointment {
                 other.appointmentType == appointmentType) &&
             (identical(other.counsellorId, counsellorId) ||
                 other.counsellorId == counsellorId) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
             (identical(other.additionalInfo, additionalInfo) ||
@@ -191,8 +195,8 @@ class _$AppointmentImpl implements _Appointment {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, appointmentType, counsellorId, dateTime, additionalInfo);
+  int get hashCode => Object.hash(runtimeType, appointmentType, counsellorId,
+      userId, dateTime, additionalInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -210,8 +214,9 @@ class _$AppointmentImpl implements _Appointment {
 
 abstract class _Appointment implements Appointment {
   const factory _Appointment(
-      {required final AppointmentType appointmentType,
+      {required final String appointmentType,
       required final String counsellorId,
+      required final String userId,
       required final DateTime dateTime,
       required final String additionalInfo}) = _$AppointmentImpl;
 
@@ -219,9 +224,11 @@ abstract class _Appointment implements Appointment {
       _$AppointmentImpl.fromJson;
 
   @override
-  AppointmentType get appointmentType;
+  String get appointmentType;
   @override
   String get counsellorId;
+  @override
+  String get userId;
   @override
   DateTime get dateTime;
   @override
