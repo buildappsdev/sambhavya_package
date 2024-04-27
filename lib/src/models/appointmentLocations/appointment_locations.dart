@@ -6,6 +6,7 @@ part 'appointment_locations.g.dart';
 @freezed
 class AppointmentLocation with _$AppointmentLocation {
   const factory AppointmentLocation({
+    required String id,
     required String title,
     required String address,
     String? googleMapsLink,
