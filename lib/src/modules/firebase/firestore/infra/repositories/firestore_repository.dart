@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final firestoreProvider = Provider((ref) => _FirestoreController());
 
 class _FirestoreController {
+
   _FirestoreController();
 
   final firestore = FirebaseFirestore.instance;
