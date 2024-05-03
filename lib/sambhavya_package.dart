@@ -1,3 +1,3 @@
 library sambhavya_package;
 
-export 'src/models/model_exports.dart';
+export 'src/modules/appointments/appointment_export.dart';
