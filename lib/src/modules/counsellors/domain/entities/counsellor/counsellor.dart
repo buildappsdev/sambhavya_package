@@ -20,7 +20,7 @@ abstract class Counsellor with _$Counsellor {
     required String speciality,
     required int yrsOfExperience,
 
-    required List<String> workingDays,
+    required List<int> workingDays,
     required List<String> workingHours,
   }) = _Counsellor;
 

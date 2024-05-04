@@ -19,7 +19,7 @@ _$CounsellorImpl _$$CounsellorImplFromJson(Map<String, dynamic> json) =>
       speciality: json['speciality'] as String,
       yrsOfExperience: (json['yrsOfExperience'] as num).toInt(),
       workingDays: (json['workingDays'] as List<dynamic>)
-          .map((e) => e as String)
+          .map((e) => (e as num).toInt())
           .toList(),
       workingHours: (json['workingHours'] as List<dynamic>)
           .map((e) => e as String)
