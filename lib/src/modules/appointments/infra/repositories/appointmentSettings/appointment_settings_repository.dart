@@ -15,7 +15,7 @@ class _AppointmentSettingsController {
   final firestore = FirebaseFirestore.instance;
 
   static const String appointmentSettingsCollection =
-      'admin/appointment_settings';
+      'admin/appointment_preferences';
 
   Future<List<AppointmentLocation>> getAppointmentLocations() async {
     final locationsSnapshot = await _ref
