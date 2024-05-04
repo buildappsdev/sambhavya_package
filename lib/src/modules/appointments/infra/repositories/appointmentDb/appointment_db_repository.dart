@@ -17,18 +17,10 @@ class _AppointmentsDatabaseController {
   static const String appointmentsCollection = 'appointments';
 
   Future<void> createAppointment(Appointment appointment) async {
-    final data = appointment.toJson();
-
     await _ref.read(firestoreProvider).addDocumentToCollection(
           appointmentsCollection,
           appointment.id,
-          data,
-        );
-
-    await _ref.read(firestoreProvider).addDocumentToCollection(
-          'users/${appointment.userId}/appointments',
-          appointment.id,
-          data,
+          appointment.toJson(),
         );
   }
 }
