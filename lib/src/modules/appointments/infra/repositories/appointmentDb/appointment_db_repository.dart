@@ -23,4 +23,15 @@ class _AppointmentsDatabaseController {
           appointment.toJson(),
         );
   }
+
+  Future<List<Appointment>> getMyAppointments(String userId) async {
+    final appointmentsSnapshot = await _ref
+        .read(firestoreProvider)
+        .getDocumentsFromCollectionWithQuery(
+            'appointments', FirebaseQuery(field: 'userId', value: userId));
+
+    return appointmentsSnapshot.docs
+        .map((appointment) => Appointment.fromJson(appointment.data()))
+        .toList();
+  }
 }

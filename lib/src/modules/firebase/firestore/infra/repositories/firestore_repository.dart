@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final firestoreProvider = Provider((ref) => _FirestoreController());
 
 class _FirestoreController {
-
   _FirestoreController();
 
   final firestore = FirebaseFirestore.instance;
@@ -18,8 +17,26 @@ class _FirestoreController {
     }
   }
 
-  Future<QuerySnapshot<Map<String, dynamic>>> getDocumentsFromCollection(
+  Future<QuerySnapshot<Map<String, dynamic>>> getAllDocumentsFromCollection(
       String collection) async {
     return await firestore.collection(collection).get();
   }
+
+  Future<QuerySnapshot<Map<String, dynamic>>>
+      getDocumentsFromCollectionWithQuery(
+    String collection,
+    FirebaseQuery query,
+  ) async {
+    return await firestore
+        .collection(collection)
+        .where(query.field, isEqualTo: query.value)
+        .get();
+  }
+}
+
+class FirebaseQuery {
+  final String field;
+  final dynamic value;
+
+  FirebaseQuery({required this.field, required this.value});
 }

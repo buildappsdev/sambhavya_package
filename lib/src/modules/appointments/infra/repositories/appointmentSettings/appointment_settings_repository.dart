@@ -20,7 +20,8 @@ class _AppointmentSettingsController {
   Future<List<AppointmentLocation>> getAppointmentLocations() async {
     final locationsSnapshot = await _ref
         .read(firestoreProvider)
-        .getDocumentsFromCollection('$appointmentSettingsCollection/locations');
+        .getAllDocumentsFromCollection(
+            '$appointmentSettingsCollection/locations');
 
     return locationsSnapshot.docs
         .map((doc) => AppointmentLocation.fromJson(doc.data()))

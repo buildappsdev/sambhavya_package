@@ -18,7 +18,7 @@ class _CounsellorDatabaseController {
   Future<List<Counsellor>> getCounsellors() async {
     final counsellorsSnapshot = await _ref
         .read(firestoreProvider)
-        .getDocumentsFromCollection(counsellorCollection);
+        .getAllDocumentsFromCollection(counsellorCollection);
 
     return counsellorsSnapshot.docs
         .map((doc) => Counsellor.fromJson(doc.data()))
