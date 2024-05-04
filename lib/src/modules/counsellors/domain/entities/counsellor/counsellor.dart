@@ -21,7 +21,7 @@ abstract class Counsellor with _$Counsellor {
     required int yrsOfExperience,
 
     required List<int> workingDays,
-    required List<String> workingHours,
+    required List<int> workingHours,
   }) = _Counsellor;
 
   factory Counsellor.fromJson(Map<String, dynamic> json) =>

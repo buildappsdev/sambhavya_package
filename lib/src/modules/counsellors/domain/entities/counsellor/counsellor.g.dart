@@ -22,7 +22,7 @@ _$CounsellorImpl _$$CounsellorImplFromJson(Map<String, dynamic> json) =>
           .map((e) => (e as num).toInt())
           .toList(),
       workingHours: (json['workingHours'] as List<dynamic>)
-          .map((e) => e as String)
+          .map((e) => (e as num).toInt())
           .toList(),
     );
 

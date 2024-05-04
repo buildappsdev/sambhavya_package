@@ -31,7 +31,7 @@ mixin _$Counsellor {
   String get speciality => throw _privateConstructorUsedError;
   int get yrsOfExperience => throw _privateConstructorUsedError;
   List<int> get workingDays => throw _privateConstructorUsedError;
-  List<String> get workingHours => throw _privateConstructorUsedError;
+  List<int> get workingHours => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,7 +57,7 @@ abstract class $CounsellorCopyWith<$Res> {
       String speciality,
       int yrsOfExperience,
       List<int> workingDays,
-      List<String> workingHours});
+      List<int> workingHours});
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class _$CounsellorCopyWithImpl<$Res, $Val extends Counsellor>
       workingHours: null == workingHours
           ? _value.workingHours
           : workingHours // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<int>,
     ) as $Val);
   }
 }
@@ -159,7 +159,7 @@ abstract class _$$CounsellorImplCopyWith<$Res>
       String speciality,
       int yrsOfExperience,
       List<int> workingDays,
-      List<String> workingHours});
+      List<int> workingHours});
 }
 
 /// @nodoc
@@ -234,7 +234,7 @@ class __$$CounsellorImplCopyWithImpl<$Res>
       workingHours: null == workingHours
           ? _value._workingHours
           : workingHours // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<int>,
     ));
   }
 }
@@ -254,7 +254,7 @@ class _$CounsellorImpl implements _Counsellor {
       required this.speciality,
       required this.yrsOfExperience,
       required final List<int> workingDays,
-      required final List<String> workingHours})
+      required final List<int> workingHours})
       : _workingDays = workingDays,
         _workingHours = workingHours;
 
@@ -289,9 +289,9 @@ class _$CounsellorImpl implements _Counsellor {
     return EqualUnmodifiableListView(_workingDays);
   }
 
-  final List<String> _workingHours;
+  final List<int> _workingHours;
   @override
-  List<String> get workingHours {
+  List<int> get workingHours {
     if (_workingHours is EqualUnmodifiableListView) return _workingHours;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_workingHours);
@@ -370,7 +370,7 @@ abstract class _Counsellor implements Counsellor {
       required final String speciality,
       required final int yrsOfExperience,
       required final List<int> workingDays,
-      required final List<String> workingHours}) = _$CounsellorImpl;
+      required final List<int> workingHours}) = _$CounsellorImpl;
 
   factory _Counsellor.fromJson(Map<String, dynamic> json) =
       _$CounsellorImpl.fromJson;
@@ -398,7 +398,7 @@ abstract class _Counsellor implements Counsellor {
   @override
   List<int> get workingDays;
   @override
-  List<String> get workingHours;
+  List<int> get workingHours;
   @override
   @JsonKey(ignore: true)
   _$$CounsellorImplCopyWith<_$CounsellorImpl> get copyWith =>
