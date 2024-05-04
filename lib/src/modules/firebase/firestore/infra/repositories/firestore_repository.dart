@@ -26,12 +26,21 @@ class _FirestoreController {
       getDocumentsFromCollectionWithQuery(
     String collection,
     FirebaseQuery query,
+    String? orderByField,
+    int? limit,
   ) async {
-    return await firestore
-        .collection(collection)
-        .where(query.field, isEqualTo: query.value)
-        .get();
-  }
+    var querySnapshot = firestore.collection(collection).where(query.field, isEqualTo: query.value);
+
+    if (orderByField != null) {
+      querySnapshot = querySnapshot.orderBy(orderByField);
+    }
+
+    if (limit != null) {
+      querySnapshot = querySnapshot.limit(limit);
+    }
+    
+    return await querySnapshot.get();
+}
 }
 
 class FirebaseQuery {
@@ -40,3 +49,4 @@ class FirebaseQuery {
 
   FirebaseQuery({required this.field, required this.value});
 }
+
