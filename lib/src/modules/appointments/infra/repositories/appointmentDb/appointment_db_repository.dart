@@ -24,7 +24,8 @@ class _AppointmentsDatabaseController {
         );
   }
 
-  Future<List<Appointment>> getMyAppointments(String userId, int? limit) async {
+  Future<List<Appointment>> getMyAppointments(
+      {required userId, int? limit}) async {
     final appointmentsSnapshot =
         await _ref.read(firestoreProvider).getDocumentsFromCollectionWithQuery(
               'appointments',
