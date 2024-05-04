@@ -23,13 +23,15 @@ class _FirestoreController {
   }
 
   Future<QuerySnapshot<Map<String, dynamic>>>
-      getDocumentsFromCollectionWithQuery(
-    String collection,
-    FirebaseQuery query,
+      getDocumentsFromCollectionWithQuery({
+    required String collection,
+    required FirebaseQuery query,
     String? orderByField,
     int? limit,
-  ) async {
-    var querySnapshot = firestore.collection(collection).where(query.field, isEqualTo: query.value);
+  }) async {
+    var querySnapshot = firestore
+        .collection(collection)
+        .where(query.field, isEqualTo: query.value);
 
     if (orderByField != null) {
       querySnapshot = querySnapshot.orderBy(orderByField);
@@ -38,9 +40,9 @@ class _FirestoreController {
     if (limit != null) {
       querySnapshot = querySnapshot.limit(limit);
     }
-    
+
     return await querySnapshot.get();
-}
+  }
 }
 
 class FirebaseQuery {
@@ -49,4 +51,3 @@ class FirebaseQuery {
 
   FirebaseQuery({required this.field, required this.value});
 }
-
