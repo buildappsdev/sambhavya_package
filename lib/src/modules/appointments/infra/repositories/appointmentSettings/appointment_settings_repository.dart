@@ -14,13 +14,13 @@ class _AppointmentSettingsController {
 
   final firestore = FirebaseFirestore.instance;
 
-  static const String appointmentSettingsCollection = 'appointment-settings';
-
+  static const String appointmentSettingsCollection =
+      'admin/appointment_settings';
 
   Future<List<AppointmentLocation>> getAppointmentLocations() async {
     final locationsSnapshot = await _ref
         .read(firestoreProvider)
-        .getDocumentsFromCollection('locations');
+        .getDocumentsFromCollection('$appointmentSettingsCollection/locations');
 
     return locationsSnapshot.docs
         .map((doc) => AppointmentLocation.fromJson(doc.data()))
