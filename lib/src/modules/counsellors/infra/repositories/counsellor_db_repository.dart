@@ -26,33 +26,33 @@ class _CounsellorDatabaseController {
         .toList();
   }
 
-  Future<Map<String, List<String>>> getCounsellorAvailability(
-      Counsellor counsellor) async {
-    final availableDays = counsellor.workingDays;
-    final availableHours = counsellor.workingHours;
+  // Future<Map<String, List<String>>> getCounsellorAvailability(
+  //     Counsellor counsellor) async {
+    // final availableDays = counsellor.workingDays;
+    // final availableHours = counsellor.workingHours;
 
-    final availability = <String, List<String>>{};
+    // final availability = <String, List<String>>{};
 
-    for (var day in availableDays) {
-      availability[day] = availableHours;
-    }
+    // for (var day in availableDays) {
+    //   availability[day] = availableHours;
+    // }
 
-    _ref
-        .read(counsellorsAppointmentsProvider(counsellor.id))
-        .whenData((appointments) {
-      for (var appointment in appointments) {
-        final appointmentDay = appointment.dateTime.weekday;
-        final appointmentHour = appointment.dateTime.hour;
+    // _ref
+    //     .read(counsellorsAppointmentsProvider(counsellor.id))
+    //     .whenData((appointments) {
+    //   for (var appointment in appointments) {
+    //     final appointmentDay = appointment.dateTime.weekday;
+    //     final appointmentHour = appointment.dateTime.hour;
 
-        if (availability.containsKey(appointmentDay)) {
-          availability[appointmentDay]!.remove(appointmentHour);
-        }
-      }
-    });
+    //     if (availability.containsKey(appointmentDay)) {
+    //       availability[appointmentDay]!.remove(appointmentHour);
+    //     }
+    //   }
+    // });
 
-    // find empty days and remove them
-    availability.removeWhere((key, value) => value.isEmpty);
+    // // find empty days and remove them
+    // availability.removeWhere((key, value) => value.isEmpty);
 
-    return availability;
-  }
+    // return availability;
+  // }
 }
