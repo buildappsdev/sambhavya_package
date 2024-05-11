@@ -34,7 +34,7 @@ class _CounsellorDatabaseController {
     final availability = <int, List<int>>{};
 
     for (var day in availableDays) {
-      availability[day] = availableHours;
+      availability[day] = availableHours.toList();
     }
 
     _ref
@@ -44,9 +44,7 @@ class _CounsellorDatabaseController {
         final appointmentDay = appointment.dateTime.weekday;
         final appointmentHour = appointment.dateTime.hour;
 
-        if (availability.containsKey(appointmentDay)) {
-          availability[appointmentDay]!.remove(appointmentHour);
-        }
+        availability[appointmentDay]!.remove(appointmentHour);
       }
     });
 
