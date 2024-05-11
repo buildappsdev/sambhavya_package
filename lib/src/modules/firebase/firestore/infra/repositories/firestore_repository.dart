@@ -25,13 +25,38 @@ class _FirestoreController {
   Future<QuerySnapshot<Map<String, dynamic>>>
       getDocumentsFromCollectionWithQuery({
     required String collection,
-    required FirebaseQuery query,
+    required List<FirebaseQuery> queries,
     String? orderByField,
     int? limit,
   }) async {
-    var querySnapshot = firestore
-        .collection(collection)
-        .where(query.field, isEqualTo: query.value);
+    var querySnapshot = firestore.collection(collection).where('');
+
+    for (var query in queries) {
+      switch (query.firebaseQueryType) {
+        case FirebaseQueryType.isEqualTo:
+          querySnapshot =
+              querySnapshot.where(query.field, isEqualTo: query.value);
+          break;
+        case FirebaseQueryType.isGreaterThan:
+          querySnapshot =
+              querySnapshot.where(query.field, isGreaterThan: query.value);
+          break;
+        case FirebaseQueryType.isLessThan:
+          querySnapshot =
+              querySnapshot.where(query.field, isLessThan: query.value);
+          break;
+        case FirebaseQueryType.isGreaterThanOrEqualTo:
+          querySnapshot = querySnapshot.where(query.field,
+              isGreaterThanOrEqualTo: query.value);
+          break;
+        case FirebaseQueryType.isLessThanOrEqualTo:
+          querySnapshot = querySnapshot.where(query.field,
+              isLessThanOrEqualTo: query.value);
+          break;
+        case null:
+          break;
+      }
+    }
 
     if (orderByField != null) {
       querySnapshot = querySnapshot.orderBy(orderByField);
@@ -45,9 +70,21 @@ class _FirestoreController {
   }
 }
 
+enum FirebaseQueryType {
+  isEqualTo,
+  isGreaterThan,
+  isLessThan,
+  isGreaterThanOrEqualTo,
+  isLessThanOrEqualTo
+}
+
 class FirebaseQuery {
   final String field;
+  final FirebaseQueryType? firebaseQueryType;
   final dynamic value;
 
-  FirebaseQuery({required this.field, required this.value});
+  FirebaseQuery(
+      {required this.field,
+      required this.value,
+      this.firebaseQueryType = FirebaseQueryType.isEqualTo});
 }
