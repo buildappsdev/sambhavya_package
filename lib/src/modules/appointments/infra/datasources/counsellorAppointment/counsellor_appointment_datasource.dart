@@ -10,3 +10,13 @@ final counsellorsAppointmentsProvider =
       .read(appointmentsDatabaseProvider)
       .getCounsellorsAppointments(counsellorId: counsellorId);
 });
+
+final counsellorsWeekAppointmentsProvider =
+    FutureProvider.family<List<Appointment>, String>((
+  ref,
+  counsellorId,
+) async {
+  return ref
+      .read(appointmentsDatabaseProvider)
+      .getCounsellorsAppointments(counsellorId: counsellorId, days: 7);
+});
