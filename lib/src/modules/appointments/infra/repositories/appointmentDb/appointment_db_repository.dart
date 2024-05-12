@@ -54,18 +54,18 @@ class _AppointmentsDatabaseController {
           field: 'counsellorId',
           value: counsellorId,
         ),
-        if (days != null) ...[
-          FirebaseQuery(
-            field: 'dateTime',
-            value: DateTime.now(),
-            firebaseQueryType: FirebaseQueryType.isGreaterThanOrEqualTo,
-          ),
-          FirebaseQuery(
-            field: 'dateTime',
-            value: DateTime.now().add(Duration(days: days)),
-            firebaseQueryType: FirebaseQueryType.isLessThanOrEqualTo,
-          ),
-        ]
+        // if (days != null) ...[
+        //   FirebaseQuery(
+        //     field: 'dateTime',
+        //     value: DateTime.now(),
+        //     firebaseQueryType: FirebaseQueryType.isGreaterThanOrEqualTo,
+        //   ),
+        //   FirebaseQuery(
+        //     field: 'dateTime',
+        //     value: DateTime.now().add(Duration(days: days)),
+        //     firebaseQueryType: FirebaseQueryType.isLessThanOrEqualTo,
+        //   ),
+        // ]
       ],
     );
 

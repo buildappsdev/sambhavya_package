@@ -29,7 +29,10 @@ class _FirestoreController {
     String? orderByField,
     int? limit,
   }) async {
-    var querySnapshot = firestore.collection(collection).where('');
+    var querySnapshot = firestore.collection(collection).where(
+          queries.first.field,
+          isEqualTo: queries.first.value,
+        );
 
     for (var query in queries) {
       switch (query.firebaseQueryType) {
