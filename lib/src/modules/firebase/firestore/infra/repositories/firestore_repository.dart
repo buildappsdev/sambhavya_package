@@ -25,41 +25,48 @@ class _FirestoreController {
   Future<QuerySnapshot<Map<String, dynamic>>>
       getDocumentsFromCollectionWithQuery({
     required String collection,
-    required List<FirebaseQuery> queries,
+    required FirebaseQuery query,
     String? orderByField,
     int? limit,
   }) async {
     var querySnapshot = firestore.collection(collection).where(
-          queries.first.field,
-          isEqualTo: queries.first.value,
+          query.field,
+          isEqualTo: query.value,
         );
 
-    for (var query in queries) {
-      switch (query.firebaseQueryType) {
-        case FirebaseQueryType.isEqualTo:
-          querySnapshot =
-              querySnapshot.where(query.field, isEqualTo: query.value);
-          break;
-        case FirebaseQueryType.isGreaterThan:
-          querySnapshot =
-              querySnapshot.where(query.field, isGreaterThan: query.value);
-          break;
-        case FirebaseQueryType.isLessThan:
-          querySnapshot =
-              querySnapshot.where(query.field, isLessThan: query.value);
-          break;
-        case FirebaseQueryType.isGreaterThanOrEqualTo:
-          querySnapshot = querySnapshot.where(query.field,
-              isGreaterThanOrEqualTo: query.value);
-          break;
-        case FirebaseQueryType.isLessThanOrEqualTo:
-          querySnapshot = querySnapshot.where(query.field,
-              isLessThanOrEqualTo: query.value);
-          break;
-        case null:
-          break;
-      }
+    if (orderByField != null) {
+      querySnapshot = querySnapshot.orderBy(orderByField);
     }
+
+    if (limit != null) {
+      querySnapshot = querySnapshot.limit(limit);
+    }
+
+    return await querySnapshot.get();
+  }
+
+//TODO Hardcoded Replace Later
+  Future<QuerySnapshot<Map<String, dynamic>>>
+      getDocumentsFromCollectionWithQuery7Days({
+    required String collection,
+    required FirebaseQuery query,
+    String? orderByField,
+    int? limit,
+  }) async {
+    var querySnapshot = firestore
+        .collection(collection)
+        .where(
+          query.field,
+          isEqualTo: query.value,
+        )
+        .where(
+          'dateTime',
+          isLessThanOrEqualTo: DateTime.now().add(Duration(days: 7)),
+        )
+        .where(
+          'dateTime',
+          isGreaterThanOrEqualTo: DateTime.now(),
+        );
 
     if (orderByField != null) {
       querySnapshot = querySnapshot.orderBy(orderByField);
@@ -73,21 +80,12 @@ class _FirestoreController {
   }
 }
 
-enum FirebaseQueryType {
-  isEqualTo,
-  isGreaterThan,
-  isLessThan,
-  isGreaterThanOrEqualTo,
-  isLessThanOrEqualTo
-}
-
 class FirebaseQuery {
   final String field;
-  final FirebaseQueryType? firebaseQueryType;
   final dynamic value;
 
-  FirebaseQuery(
-      {required this.field,
-      required this.value,
-      this.firebaseQueryType = FirebaseQueryType.isEqualTo});
+  FirebaseQuery({
+    required this.field,
+    required this.value,
+  });
 }

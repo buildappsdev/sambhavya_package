@@ -29,12 +29,10 @@ class _AppointmentsDatabaseController {
     final appointmentsSnapshot =
         await _ref.read(firestoreProvider).getDocumentsFromCollectionWithQuery(
               collection: 'appointments',
-              queries: [
-                FirebaseQuery(
-                  field: 'userId',
-                  value: userId,
-                ),
-              ],
+              query: FirebaseQuery(
+                field: 'userId',
+                value: userId,
+              ),
               orderByField: 'dateTime',
               limit: limit,
             );
@@ -48,26 +46,30 @@ class _AppointmentsDatabaseController {
       {required String counsellorId, int? days}) async {
     final appointmentsSnapshot =
         await _ref.read(firestoreProvider).getDocumentsFromCollectionWithQuery(
-      collection: 'appointments',
-      queries: [
-        FirebaseQuery(
-          field: 'counsellorId',
-          value: counsellorId,
-        ),
-        // if (days != null) ...[
-        //   FirebaseQuery(
-        //     field: 'dateTime',
-        //     value: DateTime.now(),
-        //     firebaseQueryType: FirebaseQueryType.isGreaterThanOrEqualTo,
-        //   ),
-        //   FirebaseQuery(
-        //     field: 'dateTime',
-        //     value: DateTime.now().add(Duration(days: days)),
-        //     firebaseQueryType: FirebaseQueryType.isLessThanOrEqualTo,
-        //   ),
-        // ]
-      ],
-    );
+              collection: 'appointments',
+              query: FirebaseQuery(
+                field: 'counsellorId',
+                value: counsellorId,
+              ),
+            );
+
+    return appointmentsSnapshot.docs
+        .map((appointment) => Appointment.fromJson(appointment.data()))
+        .toList();
+  }
+
+//TODO Hardcoded Replace Later
+  Future<List<Appointment>> getCounsellorsWeekAppointments(
+      {required String counsellorId, int? days}) async {
+    final appointmentsSnapshot = await _ref
+        .read(firestoreProvider)
+        .getDocumentsFromCollectionWithQuery7Days(
+          collection: 'appointments',
+          query: FirebaseQuery(
+            field: 'counsellorId',
+            value: counsellorId,
+          ),
+        );
 
     return appointmentsSnapshot.docs
         .map((appointment) => Appointment.fromJson(appointment.data()))
