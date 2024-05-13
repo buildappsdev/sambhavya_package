@@ -1,7 +1,7 @@
 class AppDateUtils {
   // Returns a list of the next 7 days from today
   static final sevenDaysFromNow = List.generate(7, (index) {
-    final date = DateTime.now().add(Duration(days: index));
+    final date = DateTime.now().add(Duration(days: index + 1));
     return date;
   });
 
@@ -27,7 +27,7 @@ class AppDateUtils {
       }
     }).toList();
   }
-  
+
   static List<int> daysIntoWeekdayInts(List<String> days) {
     return days.map((day) {
       switch (day) {
