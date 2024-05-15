@@ -11,3 +11,6 @@ export 'infra/datasources/counsellorAppointment/counsellor_appointment_datasourc
 
 // Repositories export
 export 'infra/repositories/appointmentDb/appointment_db_repository.dart';
+
+// Enums export
+export 'domain/entities/appointmentStatus/appointment_status.dart';

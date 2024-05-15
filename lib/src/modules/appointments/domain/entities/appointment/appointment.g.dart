@@ -9,6 +9,7 @@ part of 'appointment.dart';
 _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
     _$AppointmentImpl(
       id: json['id'] as String,
+      appointmentStatus: json['appointmentStatus'] as String,
       appointmentType: json['appointmentType'] as String,
       appointmentLocationId: json['appointmentLocationId'] as String?,
       counsellorId: json['counsellorId'] as String,
@@ -20,6 +21,7 @@ _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'appointmentStatus': instance.appointmentStatus,
       'appointmentType': instance.appointmentType,
       'appointmentLocationId': instance.appointmentLocationId,
       'counsellorId': instance.counsellorId,

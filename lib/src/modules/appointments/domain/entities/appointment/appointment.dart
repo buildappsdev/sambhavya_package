@@ -7,6 +7,7 @@ part 'appointment.g.dart';
 class Appointment with _$Appointment {
   const factory Appointment({
     required String id,
+    required String appointmentStatus,
     required String appointmentType,
     required String? appointmentLocationId,
     required String counsellorId,
