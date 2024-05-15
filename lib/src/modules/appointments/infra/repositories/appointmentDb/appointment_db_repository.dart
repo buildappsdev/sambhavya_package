@@ -34,6 +34,7 @@ class _AppointmentsDatabaseController {
                 value: userId,
               ),
               orderByField: 'dateTime',
+              descending: true,
               limit: limit,
             );
 

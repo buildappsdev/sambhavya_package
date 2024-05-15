@@ -28,6 +28,7 @@ class _FirestoreController {
     required FirebaseQuery query,
     String? orderByField,
     int? limit,
+    bool? descending,
   }) async {
     var querySnapshot = firestore.collection(collection).where(
           query.field,
@@ -35,7 +36,8 @@ class _FirestoreController {
         );
 
     if (orderByField != null) {
-      querySnapshot = querySnapshot.orderBy(orderByField);
+      querySnapshot =
+          querySnapshot.orderBy(orderByField, descending: descending ?? false);
     }
 
     if (limit != null) {
