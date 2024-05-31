@@ -9,6 +9,7 @@ class AppNotification with _$AppNotification {
   const factory AppNotification({
     required String id,
     required NotificationType type,
+    required DateTime createdAt,
     required String title,
     required String body,
     required String user,

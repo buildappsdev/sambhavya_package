@@ -11,6 +11,7 @@ _$AppNotificationImpl _$$AppNotificationImplFromJson(
     _$AppNotificationImpl(
       id: json['id'] as String,
       type: $enumDecode(_$NotificationTypeEnumMap, json['type']),
+      createdAt: DateTime.parse(json['createdAt'] as String),
       title: json['title'] as String,
       body: json['body'] as String,
       user: json['user'] as String,
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$AppNotificationImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'type': _$NotificationTypeEnumMap[instance.type]!,
+      'createdAt': instance.createdAt.toIso8601String(),
       'title': instance.title,
       'body': instance.body,
       'user': instance.user,

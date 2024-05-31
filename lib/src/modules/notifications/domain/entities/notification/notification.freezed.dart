@@ -22,6 +22,7 @@ AppNotification _$AppNotificationFromJson(Map<String, dynamic> json) {
 mixin _$AppNotification {
   String get id => throw _privateConstructorUsedError;
   NotificationType get type => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   String get user => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $AppNotificationCopyWith<$Res> {
   $Res call(
       {String id,
       NotificationType type,
+      DateTime createdAt,
       String title,
       String body,
       String user,
@@ -63,6 +65,7 @@ class _$AppNotificationCopyWithImpl<$Res, $Val extends AppNotification>
   $Res call({
     Object? id = null,
     Object? type = null,
+    Object? createdAt = null,
     Object? title = null,
     Object? body = null,
     Object? user = null,
@@ -77,6 +80,10 @@ class _$AppNotificationCopyWithImpl<$Res, $Val extends AppNotification>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as NotificationType,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -108,6 +115,7 @@ abstract class _$$AppNotificationImplCopyWith<$Res>
   $Res call(
       {String id,
       NotificationType type,
+      DateTime createdAt,
       String title,
       String body,
       String user,
@@ -127,6 +135,7 @@ class __$$AppNotificationImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? type = null,
+    Object? createdAt = null,
     Object? title = null,
     Object? body = null,
     Object? user = null,
@@ -141,6 +150,10 @@ class __$$AppNotificationImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as NotificationType,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -167,6 +180,7 @@ class _$AppNotificationImpl implements _AppNotification {
   const _$AppNotificationImpl(
       {required this.id,
       required this.type,
+      required this.createdAt,
       required this.title,
       required this.body,
       required this.user,
@@ -180,6 +194,8 @@ class _$AppNotificationImpl implements _AppNotification {
   final String id;
   @override
   final NotificationType type;
+  @override
+  final DateTime createdAt;
   @override
   final String title;
   @override
@@ -196,7 +212,7 @@ class _$AppNotificationImpl implements _AppNotification {
 
   @override
   String toString() {
-    return 'AppNotification(id: $id, type: $type, title: $title, body: $body, user: $user, data: $data)';
+    return 'AppNotification(id: $id, type: $type, createdAt: $createdAt, title: $title, body: $body, user: $user, data: $data)';
   }
 
   @override
@@ -206,6 +222,8 @@ class _$AppNotificationImpl implements _AppNotification {
             other is _$AppNotificationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body) &&
             (identical(other.user, user) || other.user == user) &&
@@ -214,8 +232,8 @@ class _$AppNotificationImpl implements _AppNotification {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, type, title, body, user,
-      const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(runtimeType, id, type, createdAt, title, body,
+      user, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -236,6 +254,7 @@ abstract class _AppNotification implements AppNotification {
   const factory _AppNotification(
       {required final String id,
       required final NotificationType type,
+      required final DateTime createdAt,
       required final String title,
       required final String body,
       required final String user,
@@ -248,6 +267,8 @@ abstract class _AppNotification implements AppNotification {
   String get id;
   @override
   NotificationType get type;
+  @override
+  DateTime get createdAt;
   @override
   String get title;
   @override
