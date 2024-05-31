@@ -22,6 +22,11 @@ class _FirestoreController {
     return await firestore.collection(collection).get();
   }
 
+  Future<DocumentSnapshot<Map<String, dynamic>>> getDocumentsFromCollection(
+      String collection, String documentId) async {
+    return await firestore.collection(collection).doc(documentId).get();
+  }
+
   Future<QuerySnapshot<Map<String, dynamic>>>
       getDocumentsFromCollectionWithQuery({
     required String collection,
