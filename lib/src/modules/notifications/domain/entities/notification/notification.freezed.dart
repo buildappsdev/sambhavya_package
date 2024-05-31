@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Notification _$NotificationFromJson(Map<String, dynamic> json) {
-  return _Notification.fromJson(json);
+AppNotification _$AppNotificationFromJson(Map<String, dynamic> json) {
+  return _AppNotification.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Notification {
+mixin _$AppNotification {
   String get id => throw _privateConstructorUsedError;
   NotificationType get type => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -29,15 +29,15 @@ mixin _$Notification {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $NotificationCopyWith<Notification> get copyWith =>
+  $AppNotificationCopyWith<AppNotification> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NotificationCopyWith<$Res> {
-  factory $NotificationCopyWith(
-          Notification value, $Res Function(Notification) then) =
-      _$NotificationCopyWithImpl<$Res, Notification>;
+abstract class $AppNotificationCopyWith<$Res> {
+  factory $AppNotificationCopyWith(
+          AppNotification value, $Res Function(AppNotification) then) =
+      _$AppNotificationCopyWithImpl<$Res, AppNotification>;
   @useResult
   $Res call(
       {String id,
@@ -49,9 +49,9 @@ abstract class $NotificationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
-    implements $NotificationCopyWith<$Res> {
-  _$NotificationCopyWithImpl(this._value, this._then);
+class _$AppNotificationCopyWithImpl<$Res, $Val extends AppNotification>
+    implements $AppNotificationCopyWith<$Res> {
+  _$AppNotificationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -98,11 +98,11 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
 }
 
 /// @nodoc
-abstract class _$$NotificationImplCopyWith<$Res>
-    implements $NotificationCopyWith<$Res> {
-  factory _$$NotificationImplCopyWith(
-          _$NotificationImpl value, $Res Function(_$NotificationImpl) then) =
-      __$$NotificationImplCopyWithImpl<$Res>;
+abstract class _$$AppNotificationImplCopyWith<$Res>
+    implements $AppNotificationCopyWith<$Res> {
+  factory _$$AppNotificationImplCopyWith(_$AppNotificationImpl value,
+          $Res Function(_$AppNotificationImpl) then) =
+      __$$AppNotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,11 +115,11 @@ abstract class _$$NotificationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NotificationImplCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$NotificationImpl>
-    implements _$$NotificationImplCopyWith<$Res> {
-  __$$NotificationImplCopyWithImpl(
-      _$NotificationImpl _value, $Res Function(_$NotificationImpl) _then)
+class __$$AppNotificationImplCopyWithImpl<$Res>
+    extends _$AppNotificationCopyWithImpl<$Res, _$AppNotificationImpl>
+    implements _$$AppNotificationImplCopyWith<$Res> {
+  __$$AppNotificationImplCopyWithImpl(
+      _$AppNotificationImpl _value, $Res Function(_$AppNotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +132,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
     Object? user = null,
     Object? data = null,
   }) {
-    return _then(_$NotificationImpl(
+    return _then(_$AppNotificationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -163,8 +163,8 @@ class __$$NotificationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotificationImpl implements _Notification {
-  const _$NotificationImpl(
+class _$AppNotificationImpl implements _AppNotification {
+  const _$AppNotificationImpl(
       {required this.id,
       required this.type,
       required this.title,
@@ -173,8 +173,8 @@ class _$NotificationImpl implements _Notification {
       required final Map<String, dynamic> data})
       : _data = data;
 
-  factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotificationImplFromJson(json);
+  factory _$AppNotificationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppNotificationImplFromJson(json);
 
   @override
   final String id;
@@ -196,14 +196,14 @@ class _$NotificationImpl implements _Notification {
 
   @override
   String toString() {
-    return 'Notification(id: $id, type: $type, title: $title, body: $body, user: $user, data: $data)';
+    return 'AppNotification(id: $id, type: $type, title: $title, body: $body, user: $user, data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationImpl &&
+            other is _$AppNotificationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.title, title) || other.title == title) &&
@@ -220,28 +220,29 @@ class _$NotificationImpl implements _Notification {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
-      __$$NotificationImplCopyWithImpl<_$NotificationImpl>(this, _$identity);
+  _$$AppNotificationImplCopyWith<_$AppNotificationImpl> get copyWith =>
+      __$$AppNotificationImplCopyWithImpl<_$AppNotificationImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NotificationImplToJson(
+    return _$$AppNotificationImplToJson(
       this,
     );
   }
 }
 
-abstract class _Notification implements Notification {
-  const factory _Notification(
+abstract class _AppNotification implements AppNotification {
+  const factory _AppNotification(
       {required final String id,
       required final NotificationType type,
       required final String title,
       required final String body,
       required final String user,
-      required final Map<String, dynamic> data}) = _$NotificationImpl;
+      required final Map<String, dynamic> data}) = _$AppNotificationImpl;
 
-  factory _Notification.fromJson(Map<String, dynamic> json) =
-      _$NotificationImpl.fromJson;
+  factory _AppNotification.fromJson(Map<String, dynamic> json) =
+      _$AppNotificationImpl.fromJson;
 
   @override
   String get id;
@@ -257,6 +258,6 @@ abstract class _Notification implements Notification {
   Map<String, dynamic> get data;
   @override
   @JsonKey(ignore: true)
-  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
+  _$$AppNotificationImplCopyWith<_$AppNotificationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

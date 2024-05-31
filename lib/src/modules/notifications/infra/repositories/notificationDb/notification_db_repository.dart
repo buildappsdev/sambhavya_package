@@ -14,7 +14,7 @@ class _AppointmentsDatabaseController {
 
   final firestore = FirebaseFirestore.instance;
 
-  Future<void> createNotification(Notification notification) async {
+  Future<void> createNotification(AppNotification notification) async {
     await _ref.read(firestoreProvider).addDocumentToCollection(
           'users/${notification.user}/notifications',
           notification.id,
@@ -22,7 +22,7 @@ class _AppointmentsDatabaseController {
         );
   }
 
-  Future<List<Notification>> getMyNotifications(
+  Future<List<AppNotification>> getMyNotifications(
       {required userId, int? limit}) async {
     final notificationsSnapshot =
         await _ref.read(firestoreProvider).getAllDocumentsFromCollection(
@@ -30,7 +30,7 @@ class _AppointmentsDatabaseController {
             );
 
     return notificationsSnapshot.docs
-        .map((appointment) => Notification.fromJson(appointment.data()))
+        .map((appointment) => AppNotification.fromJson(appointment.data()))
         .toList();
   }
 }

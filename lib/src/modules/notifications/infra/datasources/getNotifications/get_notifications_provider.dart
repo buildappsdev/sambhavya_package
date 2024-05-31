@@ -3,7 +3,7 @@ import 'package:sambhavya_package/src/modules/notifications/infra/repositories/n
 
 import '../../../domain/entities/notification/notification.dart';
 
-final getNotificationsProvider = FutureProvider.family<List<Notification>, String>((
+final getNotificationsProvider = FutureProvider.family<List<AppNotification>, String>((
   ref,
   userId,
 ) async {
