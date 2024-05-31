@@ -12,6 +12,8 @@ class AppUser with _$AppUser {
     required String email,
     required bool isGuest,
     required String fcmToken,
+    String? organizationId,
+    String? profileImageUrl,
   }) = _AppUser;
 
   factory AppUser.fromJson(Map<String, dynamic> json) =>
