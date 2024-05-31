@@ -24,6 +24,23 @@ class _AppointmentsDatabaseController {
         );
   }
 
+  Future<Appointment> getAppointmentById(
+      {required String appointmentId}) async {
+    final appointmentsSnapshot =
+        await _ref.read(firestoreProvider).getDocumentsFromCollectionWithQuery(
+              collection: 'appointments',
+              query: FirebaseQuery(
+                field: 'id',
+                value: appointmentId,
+              ),
+              limit: 1,
+            );
+    return appointmentsSnapshot.docs
+        .map((appointment) => Appointment.fromJson(appointment.data()))
+        .toList()
+        .first;
+  }
+
   Future<List<Appointment>> getMyAppointments(
       {required userId, int? limit}) async {
     final appointmentsSnapshot =

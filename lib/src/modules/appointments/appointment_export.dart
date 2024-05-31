@@ -7,6 +7,8 @@ export 'domain/entities/appointmentType/appointment_type.dart';
 export 'infra/datasources/appointmentLocation/appointment_location_datasource.dart';
 export 'infra/datasources/myAppointments/my_appointments_datasource.dart';
 export 'infra/datasources/myLatestAppointment/my_latest_appointment_datasource.dart';
+export 'infra/datasources/appointmentDetails/appointment_details.dart';
+
 export 'infra/datasources/counsellorAppointment/counsellor_appointment_datasource.dart';
 
 // Repositories export
