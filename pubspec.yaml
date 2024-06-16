@@ -8,7 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  cloud_firestore: ^4.17.2
+  cloud_firestore: ^5.0.1
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.5.1
@@ -18,7 +18,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
   freezed: ^2.5.2
   json_serializable: ^6.8.0
   build_runner: ^2.4.9
