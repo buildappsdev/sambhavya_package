@@ -24,7 +24,11 @@ class _FirestoreController {
 
   Future<DocumentSnapshot<Map<String, dynamic>>> getDocumentsFromCollection(
       String collection, String documentId) async {
-    return await firestore.collection(collection).doc(documentId).get();
+    try {
+      return await firestore.collection(collection).doc(documentId).get();
+    } catch (e) {
+      rethrow;
+    }
   }
 
   Future<QuerySnapshot<Map<String, dynamic>>>
