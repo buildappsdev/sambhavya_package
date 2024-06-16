@@ -23,13 +23,17 @@ class _UserDatabaseController {
         );
   }
 
-  Future<AppUser> getUser({required String id}) async {
+  Future<AppUser?> getUser({required String id}) async {
     final userDocument =
         await _ref.read(firestoreProvider).getDocumentsFromCollection(
               usersCollection,
               id,
             );
 
-    return AppUser.fromJson(userDocument.data()!);
+    if (userDocument.data() == null) {
+      return null;
+    } else {
+      return AppUser.fromJson(userDocument.data()!);
+    }
   }
 }
