@@ -28,8 +28,12 @@ mixin _$AppNotification {
   String get user => throw _privateConstructorUsedError;
   Map<String, dynamic> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this AppNotification to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppNotificationCopyWith<AppNotification> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$AppNotificationCopyWithImpl<$Res, $Val extends AppNotification>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class __$$AppNotificationImplCopyWithImpl<$Res>
       _$AppNotificationImpl _value, $Res Function(_$AppNotificationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -230,12 +238,14 @@ class _$AppNotificationImpl implements _AppNotification {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, type, createdAt, title, body,
       user, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppNotificationImplCopyWith<_$AppNotificationImpl> get copyWith =>
@@ -277,8 +287,11 @@ abstract class _AppNotification implements AppNotification {
   String get user;
   @override
   Map<String, dynamic> get data;
+
+  /// Create a copy of AppNotification
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppNotificationImplCopyWith<_$AppNotificationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

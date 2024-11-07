@@ -23,8 +23,12 @@ mixin _$AppointmentType {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
+  /// Serializes this AppointmentType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppointmentType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppointmentTypeCopyWith<AppointmentType> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$AppointmentTypeCopyWithImpl<$Res, $Val extends AppointmentType>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppointmentType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$AppointmentTypeImplCopyWithImpl<$Res>
       _$AppointmentTypeImpl _value, $Res Function(_$AppointmentTypeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppointmentType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +141,13 @@ class _$AppointmentTypeImpl implements _AppointmentType {
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, title, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppointmentType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppointmentTypeImplCopyWith<_$AppointmentTypeImpl> get copyWith =>
@@ -164,8 +174,11 @@ abstract class _AppointmentType implements AppointmentType {
   String get title;
   @override
   String get description;
+
+  /// Create a copy of AppointmentType
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppointmentTypeImplCopyWith<_$AppointmentTypeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

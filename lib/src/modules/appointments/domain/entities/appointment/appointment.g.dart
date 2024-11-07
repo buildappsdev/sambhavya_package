@@ -16,6 +16,7 @@ _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
       userId: json['userId'] as String,
       dateTime: DateTime.parse(json['dateTime'] as String),
       additionalInfo: json['additionalInfo'] as String,
+      meetingLink: json['meetingLink'] as String?,
     );
 
 Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
@@ -28,4 +29,5 @@ Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
       'userId': instance.userId,
       'dateTime': instance.dateTime.toIso8601String(),
       'additionalInfo': instance.additionalInfo,
+      'meetingLink': instance.meetingLink,
     };

@@ -33,8 +33,12 @@ mixin _$Counsellor {
   List<int> get workingDays => throw _privateConstructorUsedError;
   List<int> get workingHours => throw _privateConstructorUsedError;
 
+  /// Serializes this Counsellor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Counsellor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CounsellorCopyWith<Counsellor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -70,6 +74,8 @@ class _$CounsellorCopyWithImpl<$Res, $Val extends Counsellor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Counsellor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,6 +176,8 @@ class __$$CounsellorImplCopyWithImpl<$Res>
       _$CounsellorImpl _value, $Res Function(_$CounsellorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Counsellor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -326,7 +334,7 @@ class _$CounsellorImpl implements _Counsellor {
                 .equals(other._workingHours, _workingHours));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -343,7 +351,9 @@ class _$CounsellorImpl implements _Counsellor {
       const DeepCollectionEquality().hash(_workingDays),
       const DeepCollectionEquality().hash(_workingHours));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Counsellor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CounsellorImplCopyWith<_$CounsellorImpl> get copyWith =>
@@ -399,8 +409,11 @@ abstract class _Counsellor implements Counsellor {
   List<int> get workingDays;
   @override
   List<int> get workingHours;
+
+  /// Create a copy of Counsellor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CounsellorImplCopyWith<_$CounsellorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -28,9 +28,14 @@ mixin _$Appointment {
   String get userId => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
   String get additionalInfo => throw _privateConstructorUsedError;
+  String? get meetingLink => throw _privateConstructorUsedError;
 
+  /// Serializes this Appointment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Appointment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppointmentCopyWith<Appointment> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,7 +54,8 @@ abstract class $AppointmentCopyWith<$Res> {
       String counsellorId,
       String userId,
       DateTime dateTime,
-      String additionalInfo});
+      String additionalInfo,
+      String? meetingLink});
 }
 
 /// @nodoc
@@ -62,6 +68,8 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Appointment
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +81,7 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
     Object? userId = null,
     Object? dateTime = null,
     Object? additionalInfo = null,
+    Object? meetingLink = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -107,6 +116,10 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           ? _value.additionalInfo
           : additionalInfo // ignore: cast_nullable_to_non_nullable
               as String,
+      meetingLink: freezed == meetingLink
+          ? _value.meetingLink
+          : meetingLink // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -127,7 +140,8 @@ abstract class _$$AppointmentImplCopyWith<$Res>
       String counsellorId,
       String userId,
       DateTime dateTime,
-      String additionalInfo});
+      String additionalInfo,
+      String? meetingLink});
 }
 
 /// @nodoc
@@ -138,6 +152,8 @@ class __$$AppointmentImplCopyWithImpl<$Res>
       _$AppointmentImpl _value, $Res Function(_$AppointmentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Appointment
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -149,6 +165,7 @@ class __$$AppointmentImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? dateTime = null,
     Object? additionalInfo = null,
+    Object? meetingLink = freezed,
   }) {
     return _then(_$AppointmentImpl(
       id: null == id
@@ -183,6 +200,10 @@ class __$$AppointmentImplCopyWithImpl<$Res>
           ? _value.additionalInfo
           : additionalInfo // ignore: cast_nullable_to_non_nullable
               as String,
+      meetingLink: freezed == meetingLink
+          ? _value.meetingLink
+          : meetingLink // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -198,7 +219,8 @@ class _$AppointmentImpl implements _Appointment {
       required this.counsellorId,
       required this.userId,
       required this.dateTime,
-      required this.additionalInfo});
+      required this.additionalInfo,
+      this.meetingLink});
 
   factory _$AppointmentImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentImplFromJson(json);
@@ -219,10 +241,12 @@ class _$AppointmentImpl implements _Appointment {
   final DateTime dateTime;
   @override
   final String additionalInfo;
+  @override
+  final String? meetingLink;
 
   @override
   String toString() {
-    return 'Appointment(id: $id, appointmentStatus: $appointmentStatus, appointmentType: $appointmentType, appointmentLocationId: $appointmentLocationId, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo)';
+    return 'Appointment(id: $id, appointmentStatus: $appointmentStatus, appointmentType: $appointmentType, appointmentLocationId: $appointmentLocationId, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo, meetingLink: $meetingLink)';
   }
 
   @override
@@ -243,10 +267,12 @@ class _$AppointmentImpl implements _Appointment {
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
             (identical(other.additionalInfo, additionalInfo) ||
-                other.additionalInfo == additionalInfo));
+                other.additionalInfo == additionalInfo) &&
+            (identical(other.meetingLink, meetingLink) ||
+                other.meetingLink == meetingLink));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -257,9 +283,12 @@ class _$AppointmentImpl implements _Appointment {
       counsellorId,
       userId,
       dateTime,
-      additionalInfo);
+      additionalInfo,
+      meetingLink);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Appointment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppointmentImplCopyWith<_$AppointmentImpl> get copyWith =>
@@ -282,7 +311,8 @@ abstract class _Appointment implements Appointment {
       required final String counsellorId,
       required final String userId,
       required final DateTime dateTime,
-      required final String additionalInfo}) = _$AppointmentImpl;
+      required final String additionalInfo,
+      final String? meetingLink}) = _$AppointmentImpl;
 
   factory _Appointment.fromJson(Map<String, dynamic> json) =
       _$AppointmentImpl.fromJson;
@@ -304,7 +334,12 @@ abstract class _Appointment implements Appointment {
   @override
   String get additionalInfo;
   @override
-  @JsonKey(ignore: true)
+  String? get meetingLink;
+
+  /// Create a copy of Appointment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppointmentImplCopyWith<_$AppointmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
