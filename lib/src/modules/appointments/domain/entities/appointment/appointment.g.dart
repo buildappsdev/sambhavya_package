@@ -9,9 +9,11 @@ part of 'appointment.dart';
 _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
     _$AppointmentImpl(
       id: json['id'] as String,
-      appointmentStatus: json['appointmentStatus'] as String,
-      appointmentType: json['appointmentType'] as String,
-      appointmentLocationId: json['appointmentLocationId'] as String?,
+      type: const AppointmentTypeConverter()
+          .fromJson(json['type'] as Map<String, dynamic>),
+      appointmentStatus:
+          $enumDecode(_$AppointmentStatusEnumMap, json['appointmentStatus']),
+      locationId: json['locationId'] as String?,
       counsellorId: json['counsellorId'] as String,
       userId: json['userId'] as String,
       dateTime: DateTime.parse(json['dateTime'] as String),
@@ -22,12 +24,19 @@ _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'appointmentStatus': instance.appointmentStatus,
-      'appointmentType': instance.appointmentType,
-      'appointmentLocationId': instance.appointmentLocationId,
+      'type': const AppointmentTypeConverter().toJson(instance.type),
+      'appointmentStatus':
+          _$AppointmentStatusEnumMap[instance.appointmentStatus]!,
+      'locationId': instance.locationId,
       'counsellorId': instance.counsellorId,
       'userId': instance.userId,
       'dateTime': instance.dateTime.toIso8601String(),
       'additionalInfo': instance.additionalInfo,
       'meetingLink': instance.meetingLink,
     };
+
+const _$AppointmentStatusEnumMap = {
+  AppointmentStatus.booked: 'booked',
+  AppointmentStatus.confirmed: 'confirmed',
+  AppointmentStatus.cancelled: 'cancelled',
+};

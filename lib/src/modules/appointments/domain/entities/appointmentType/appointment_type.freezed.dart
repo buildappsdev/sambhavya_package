@@ -22,6 +22,7 @@ AppointmentType _$AppointmentTypeFromJson(Map<String, dynamic> json) {
 mixin _$AppointmentType {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  bool get isOnline => throw _privateConstructorUsedError;
 
   /// Serializes this AppointmentType to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,7 @@ abstract class $AppointmentTypeCopyWith<$Res> {
           AppointmentType value, $Res Function(AppointmentType) then) =
       _$AppointmentTypeCopyWithImpl<$Res, AppointmentType>;
   @useResult
-  $Res call({String title, String description});
+  $Res call({String title, String description, bool isOnline});
 }
 
 /// @nodoc
@@ -59,6 +60,7 @@ class _$AppointmentTypeCopyWithImpl<$Res, $Val extends AppointmentType>
   $Res call({
     Object? title = null,
     Object? description = null,
+    Object? isOnline = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -69,6 +71,10 @@ class _$AppointmentTypeCopyWithImpl<$Res, $Val extends AppointmentType>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isOnline: null == isOnline
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -81,7 +87,7 @@ abstract class _$$AppointmentTypeImplCopyWith<$Res>
       __$$AppointmentTypeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String description});
+  $Res call({String title, String description, bool isOnline});
 }
 
 /// @nodoc
@@ -99,6 +105,7 @@ class __$$AppointmentTypeImplCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? description = null,
+    Object? isOnline = null,
   }) {
     return _then(_$AppointmentTypeImpl(
       title: null == title
@@ -109,6 +116,10 @@ class __$$AppointmentTypeImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      isOnline: null == isOnline
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -116,7 +127,8 @@ class __$$AppointmentTypeImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AppointmentTypeImpl implements _AppointmentType {
-  const _$AppointmentTypeImpl({required this.title, required this.description});
+  const _$AppointmentTypeImpl(
+      {required this.title, required this.description, required this.isOnline});
 
   factory _$AppointmentTypeImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentTypeImplFromJson(json);
@@ -125,10 +137,12 @@ class _$AppointmentTypeImpl implements _AppointmentType {
   final String title;
   @override
   final String description;
+  @override
+  final bool isOnline;
 
   @override
   String toString() {
-    return 'AppointmentType(title: $title, description: $description)';
+    return 'AppointmentType(title: $title, description: $description, isOnline: $isOnline)';
   }
 
   @override
@@ -138,12 +152,14 @@ class _$AppointmentTypeImpl implements _AppointmentType {
             other is _$AppointmentTypeImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.isOnline, isOnline) ||
+                other.isOnline == isOnline));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, title, description);
+  int get hashCode => Object.hash(runtimeType, title, description, isOnline);
 
   /// Create a copy of AppointmentType
   /// with the given fields replaced by the non-null parameter values.
@@ -165,7 +181,8 @@ class _$AppointmentTypeImpl implements _AppointmentType {
 abstract class _AppointmentType implements AppointmentType {
   const factory _AppointmentType(
       {required final String title,
-      required final String description}) = _$AppointmentTypeImpl;
+      required final String description,
+      required final bool isOnline}) = _$AppointmentTypeImpl;
 
   factory _AppointmentType.fromJson(Map<String, dynamic> json) =
       _$AppointmentTypeImpl.fromJson;
@@ -174,6 +191,8 @@ abstract class _AppointmentType implements AppointmentType {
   String get title;
   @override
   String get description;
+  @override
+  bool get isOnline;
 
   /// Create a copy of AppointmentType
   /// with the given fields replaced by the non-null parameter values.

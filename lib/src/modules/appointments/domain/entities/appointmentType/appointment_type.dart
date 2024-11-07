@@ -8,6 +8,7 @@ class AppointmentType with _$AppointmentType {
   const factory AppointmentType({
     required String title,
     required String description,
+    required bool isOnline,
   }) = _AppointmentType;
 
   factory AppointmentType.fromJson(Map<String, dynamic> json) =>

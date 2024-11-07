@@ -21,9 +21,10 @@ Appointment _$AppointmentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Appointment {
   String get id => throw _privateConstructorUsedError;
-  String get appointmentStatus => throw _privateConstructorUsedError;
-  String get appointmentType => throw _privateConstructorUsedError;
-  String? get appointmentLocationId => throw _privateConstructorUsedError;
+  @AppointmentTypeConverter()
+  AppointmentType get type => throw _privateConstructorUsedError;
+  AppointmentStatus get appointmentStatus => throw _privateConstructorUsedError;
+  String? get locationId => throw _privateConstructorUsedError;
   String get counsellorId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
@@ -48,14 +49,16 @@ abstract class $AppointmentCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String appointmentStatus,
-      String appointmentType,
-      String? appointmentLocationId,
+      @AppointmentTypeConverter() AppointmentType type,
+      AppointmentStatus appointmentStatus,
+      String? locationId,
       String counsellorId,
       String userId,
       DateTime dateTime,
       String additionalInfo,
       String? meetingLink});
+
+  $AppointmentTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -74,9 +77,9 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
   @override
   $Res call({
     Object? id = null,
+    Object? type = null,
     Object? appointmentStatus = null,
-    Object? appointmentType = null,
-    Object? appointmentLocationId = freezed,
+    Object? locationId = freezed,
     Object? counsellorId = null,
     Object? userId = null,
     Object? dateTime = null,
@@ -88,17 +91,17 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AppointmentType,
       appointmentStatus: null == appointmentStatus
           ? _value.appointmentStatus
           : appointmentStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      appointmentType: null == appointmentType
-          ? _value.appointmentType
-          : appointmentType // ignore: cast_nullable_to_non_nullable
-              as String,
-      appointmentLocationId: freezed == appointmentLocationId
-          ? _value.appointmentLocationId
-          : appointmentLocationId // ignore: cast_nullable_to_non_nullable
+              as AppointmentStatus,
+      locationId: freezed == locationId
+          ? _value.locationId
+          : locationId // ignore: cast_nullable_to_non_nullable
               as String?,
       counsellorId: null == counsellorId
           ? _value.counsellorId
@@ -122,6 +125,16 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
               as String?,
     ) as $Val);
   }
+
+  /// Create a copy of Appointment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppointmentTypeCopyWith<$Res> get type {
+    return $AppointmentTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -134,14 +147,17 @@ abstract class _$$AppointmentImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String appointmentStatus,
-      String appointmentType,
-      String? appointmentLocationId,
+      @AppointmentTypeConverter() AppointmentType type,
+      AppointmentStatus appointmentStatus,
+      String? locationId,
       String counsellorId,
       String userId,
       DateTime dateTime,
       String additionalInfo,
       String? meetingLink});
+
+  @override
+  $AppointmentTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -158,9 +174,9 @@ class __$$AppointmentImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? type = null,
     Object? appointmentStatus = null,
-    Object? appointmentType = null,
-    Object? appointmentLocationId = freezed,
+    Object? locationId = freezed,
     Object? counsellorId = null,
     Object? userId = null,
     Object? dateTime = null,
@@ -172,17 +188,17 @@ class __$$AppointmentImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AppointmentType,
       appointmentStatus: null == appointmentStatus
           ? _value.appointmentStatus
           : appointmentStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      appointmentType: null == appointmentType
-          ? _value.appointmentType
-          : appointmentType // ignore: cast_nullable_to_non_nullable
-              as String,
-      appointmentLocationId: freezed == appointmentLocationId
-          ? _value.appointmentLocationId
-          : appointmentLocationId // ignore: cast_nullable_to_non_nullable
+              as AppointmentStatus,
+      locationId: freezed == locationId
+          ? _value.locationId
+          : locationId // ignore: cast_nullable_to_non_nullable
               as String?,
       counsellorId: null == counsellorId
           ? _value.counsellorId
@@ -213,9 +229,9 @@ class __$$AppointmentImplCopyWithImpl<$Res>
 class _$AppointmentImpl implements _Appointment {
   const _$AppointmentImpl(
       {required this.id,
+      @AppointmentTypeConverter() required this.type,
       required this.appointmentStatus,
-      required this.appointmentType,
-      required this.appointmentLocationId,
+      required this.locationId,
       required this.counsellorId,
       required this.userId,
       required this.dateTime,
@@ -228,11 +244,12 @@ class _$AppointmentImpl implements _Appointment {
   @override
   final String id;
   @override
-  final String appointmentStatus;
+  @AppointmentTypeConverter()
+  final AppointmentType type;
   @override
-  final String appointmentType;
+  final AppointmentStatus appointmentStatus;
   @override
-  final String? appointmentLocationId;
+  final String? locationId;
   @override
   final String counsellorId;
   @override
@@ -246,7 +263,7 @@ class _$AppointmentImpl implements _Appointment {
 
   @override
   String toString() {
-    return 'Appointment(id: $id, appointmentStatus: $appointmentStatus, appointmentType: $appointmentType, appointmentLocationId: $appointmentLocationId, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo, meetingLink: $meetingLink)';
+    return 'Appointment(id: $id, type: $type, appointmentStatus: $appointmentStatus, locationId: $locationId, counsellorId: $counsellorId, userId: $userId, dateTime: $dateTime, additionalInfo: $additionalInfo, meetingLink: $meetingLink)';
   }
 
   @override
@@ -255,12 +272,11 @@ class _$AppointmentImpl implements _Appointment {
         (other.runtimeType == runtimeType &&
             other is _$AppointmentImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.appointmentStatus, appointmentStatus) ||
                 other.appointmentStatus == appointmentStatus) &&
-            (identical(other.appointmentType, appointmentType) ||
-                other.appointmentType == appointmentType) &&
-            (identical(other.appointmentLocationId, appointmentLocationId) ||
-                other.appointmentLocationId == appointmentLocationId) &&
+            (identical(other.locationId, locationId) ||
+                other.locationId == locationId) &&
             (identical(other.counsellorId, counsellorId) ||
                 other.counsellorId == counsellorId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
@@ -274,17 +290,8 @@ class _$AppointmentImpl implements _Appointment {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      appointmentStatus,
-      appointmentType,
-      appointmentLocationId,
-      counsellorId,
-      userId,
-      dateTime,
-      additionalInfo,
-      meetingLink);
+  int get hashCode => Object.hash(runtimeType, id, type, appointmentStatus,
+      locationId, counsellorId, userId, dateTime, additionalInfo, meetingLink);
 
   /// Create a copy of Appointment
   /// with the given fields replaced by the non-null parameter values.
@@ -305,9 +312,9 @@ class _$AppointmentImpl implements _Appointment {
 abstract class _Appointment implements Appointment {
   const factory _Appointment(
       {required final String id,
-      required final String appointmentStatus,
-      required final String appointmentType,
-      required final String? appointmentLocationId,
+      @AppointmentTypeConverter() required final AppointmentType type,
+      required final AppointmentStatus appointmentStatus,
+      required final String? locationId,
       required final String counsellorId,
       required final String userId,
       required final DateTime dateTime,
@@ -320,11 +327,12 @@ abstract class _Appointment implements Appointment {
   @override
   String get id;
   @override
-  String get appointmentStatus;
+  @AppointmentTypeConverter()
+  AppointmentType get type;
   @override
-  String get appointmentType;
+  AppointmentStatus get appointmentStatus;
   @override
-  String? get appointmentLocationId;
+  String? get locationId;
   @override
   String get counsellorId;
   @override

@@ -11,6 +11,7 @@ _$AppointmentTypeImpl _$$AppointmentTypeImplFromJson(
     _$AppointmentTypeImpl(
       title: json['title'] as String,
       description: json['description'] as String,
+      isOnline: json['isOnline'] as bool,
     );
 
 Map<String, dynamic> _$$AppointmentTypeImplToJson(
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$AppointmentTypeImplToJson(
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,
+      'isOnline': instance.isOnline,
     };
